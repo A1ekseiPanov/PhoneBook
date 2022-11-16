@@ -1,8 +1,8 @@
-package com.example.phonebook.model.Organisation;
+package com.example.phonebook.models.Organisation;
 
-import com.example.phonebook.model.BaseEntity;
-import com.example.phonebook.model.User.User;
-import com.example.phonebook.model.Post.UserPost;
+import com.example.phonebook.models.BaseEntity;
+import com.example.phonebook.models.User.User;
+import com.example.phonebook.models.Post.UserPost;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @Table(name = "organisation")
 public class Organisation extends BaseEntity {
+
 
     @Column(name = "name")
     private String name;

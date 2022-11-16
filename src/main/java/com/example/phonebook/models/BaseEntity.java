@@ -1,6 +1,5 @@
-package com.example.phonebook.model;
+package com.example.phonebook.models;
 
-import com.example.phonebook.model.User.Status;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,6 +13,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @CreationTimestamp

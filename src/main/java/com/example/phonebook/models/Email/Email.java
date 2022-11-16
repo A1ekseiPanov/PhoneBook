@@ -1,7 +1,7 @@
-package com.example.phonebook.model.Email;
+package com.example.phonebook.models.Email;
 
-import com.example.phonebook.model.BaseEntity;
-import com.example.phonebook.model.User.User;
+import com.example.phonebook.models.BaseEntity;
+import com.example.phonebook.models.User.User;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,6 +11,9 @@ import java.util.List;
 @Data
 @Table(name = "email")
 public class Email extends BaseEntity {
+
+
+
     @Column(name = "email")
     private String email;
 
@@ -18,7 +21,7 @@ public class Email extends BaseEntity {
     private List<EmailType> emailType;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
 }

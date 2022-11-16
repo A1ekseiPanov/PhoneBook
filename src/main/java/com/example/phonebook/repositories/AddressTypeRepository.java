@@ -1,9 +1,9 @@
 package com.example.phonebook.repositories;
 
-import com.example.phonebook.models.Organisation.Organisation;
+import com.example.phonebook.models.Adress.AddressType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrganisationRepository extends JpaRepository<Organisation,Long> {
+public interface AddressTypeRepository extends JpaRepository<AddressType,Long> {
 }

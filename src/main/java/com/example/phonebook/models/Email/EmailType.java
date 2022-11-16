@@ -1,6 +1,6 @@
-package com.example.phonebook.model.Email;
+package com.example.phonebook.models.Email;
 
-import com.example.phonebook.model.BaseEntity;
+import com.example.phonebook.models.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "email_type")
 public class EmailType extends BaseEntity {
+
 
     @Column(name = "name")
     private String name;

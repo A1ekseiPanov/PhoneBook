@@ -1,6 +1,6 @@
-package com.example.phonebook.model.Adress;
+package com.example.phonebook.models.Adress;
 
-import com.example.phonebook.model.BaseEntity;
+import com.example.phonebook.models.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Data
 @Table(name = "address_type")
 public class AddressType extends BaseEntity {
+
 
     @Column (name = "name")
     private String name;

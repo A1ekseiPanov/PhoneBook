@@ -1,8 +1,8 @@
-package com.example.phonebook.model.Post;
+package com.example.phonebook.models.Post;
 
-import com.example.phonebook.model.BaseEntity;
-import com.example.phonebook.model.Organisation.Organisation;
-import com.example.phonebook.model.User.User;
+import com.example.phonebook.models.BaseEntity;
+import com.example.phonebook.models.Organisation.Organisation;
+import com.example.phonebook.models.User.User;
 import lombok.Data;
 
 import javax.persistence.*;
