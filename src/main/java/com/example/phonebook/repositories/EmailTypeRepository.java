@@ -1,6 +1,6 @@
 package com.example.phonebook.repositories;
 
-import com.example.phonebook.models.Email.EmailType;
+import com.example.phonebook.models.Email1.EmailType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

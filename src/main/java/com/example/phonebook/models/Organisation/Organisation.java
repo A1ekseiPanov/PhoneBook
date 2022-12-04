@@ -1,8 +1,8 @@
 package com.example.phonebook.models.Organisation;
 
 import com.example.phonebook.models.BaseEntity;
-import com.example.phonebook.models.User.User;
-import com.example.phonebook.models.Post.UserPost;
+import com.example.phonebook.models.Person.Person;
+import com.example.phonebook.models.Post.Post;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,11 +17,14 @@ public class Organisation extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "organisation")
-    private List<UserPost> usersPosts;
+    @ManyToMany()
+    @JoinTable(name = "organisation_post",
+            joinColumns = @JoinColumn(name = "organisation_id"),
+            inverseJoinColumns = @JoinColumn(name = "post_id"))
+    private List<Post> posts;
 
-    @OneToMany(mappedBy = "organisation")
-    private List<User> user;
+    @OneToMany(mappedBy = "organisations")
+    private List<Person> user;
 
 
 }

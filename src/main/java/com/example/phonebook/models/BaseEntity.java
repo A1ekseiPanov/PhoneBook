@@ -15,11 +15,11 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
+    @Transient
     @CreationTimestamp
     @Column(name = "created")
     private LocalDateTime created;
-
+    @Transient
     @UpdateTimestamp
     @Column(name = "updated")
     private LocalDateTime updated;

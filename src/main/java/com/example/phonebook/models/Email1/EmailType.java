@@ -1,12 +1,15 @@
-package com.example.phonebook.models.Email;
+package com.example.phonebook.models.Email1;
 
 import com.example.phonebook.models.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-@Data
+
+@EqualsAndHashCode(callSuper = true)
 @Entity
+@Data
 @Table(name = "email_type")
 public class EmailType extends BaseEntity {
 
@@ -14,7 +17,7 @@ public class EmailType extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "email_id", referencedColumnName = "id")
     private Email email;
 

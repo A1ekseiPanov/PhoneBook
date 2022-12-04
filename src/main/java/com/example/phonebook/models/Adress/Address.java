@@ -1,16 +1,17 @@
 package com.example.phonebook.models.Adress;
 
 import com.example.phonebook.models.BaseEntity;
-import com.example.phonebook.models.User.User;
+import com.example.phonebook.models.Person.Person;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "address")
-public class Address extends BaseEntity {
+public class Address extends BaseEntity  implements Serializable {
 
 
 
@@ -21,6 +22,6 @@ public class Address extends BaseEntity {
     private List<AddressType> addressType;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person user;
 }

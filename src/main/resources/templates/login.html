@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Вход</h1>
+<div style="color: red" th:if="${param.error}">
+    Не удается войти в систему.<br/>
+    Проверьте свой логин и пароль.
+</div>
+<form method="POST" th:action="@{/process_login}" id="loginForm">
+    <fieldset>
+    <label for="username">Логин: </label>
+    <input type="text" name="username" id="username"/>
+    <label for="password">Пароль: </label>
+    <input type="password" name="password" id="password"/><br/>
+     <input type="submit" value="Вход"/>
+        </fieldset>
+</form>
+<p>Новый пользователь? Нажми
+    <a th:href="@{/register}">здесь</a> , чтобы зарегистрироваться.</p>
+</body>
+</html>
