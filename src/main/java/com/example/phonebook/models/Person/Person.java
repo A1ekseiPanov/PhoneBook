@@ -1,11 +1,12 @@
-package com.example.phonebook.models.User;
+package com.example.phonebook.models.Person;
 
 import com.example.phonebook.models.Adress.Address;
 import com.example.phonebook.models.BaseEntity;
-import com.example.phonebook.models.Email.Email;
+import com.example.phonebook.models.Email1.Email;
 import com.example.phonebook.models.Organisation.Organisation;
 import com.example.phonebook.models.Phone.Phone;
-import com.example.phonebook.models.Post.UserPost;
+import com.example.phonebook.models.Post.Post;
+import com.example.phonebook.models.security.User;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,11 +16,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "user")
-public class User extends BaseEntity {
-
-    @Column(name = "username")
-    private String username;
+@Table(name = "person")
+public class Person extends BaseEntity {
 
     @Column(name = "name")
     private String name;
@@ -35,7 +33,7 @@ public class User extends BaseEntity {
 
     @Column(name = "date_of_birthday")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/yyyy") //дд/мм/гггг
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirthday;
 
     @OneToMany(mappedBy = "user")
@@ -49,22 +47,18 @@ public class User extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "organisation_id", referencedColumnName = "id")
-    private Organisation organisation;
+    private Organisation organisations;
 
     @ManyToOne
     @JoinColumn(name = "post_id", referencedColumnName = "id")
-    private UserPost post;
-
-    @Column(name = "password")
-    private String password;
+    private Post post;
 
     @Column(name = "comment")
     private String comment;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private Status status;
-
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
 
 
