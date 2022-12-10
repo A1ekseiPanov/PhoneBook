@@ -1,8 +1,7 @@
 package com.example.phonebook.repositories;
 
-import com.example.phonebook.models.security.User;
+import com.example.phonebook.security.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

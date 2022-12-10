@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакт</title>
+</head>
+<body>
+
+<p><b>Имя: </b> <a th:text="${persons.name}">Имя</a></p>
+
+<p><b>Фамилия: </b> <a th:text="${persons.surname}">Фамилия</a></p>
+
+<p><b>Отчество: </b> <a th:text="${persons.patronymic}">Отчество</a></p>
+
+<p><b>День рождения: </b> <a th:text="${persons.dateOfBirthday}">День рождения</a></p>
+
+<b>Email: </b>
+<table th:each="entry : ${emailAndEmailType}">
+    <tr><td th:text="${entry.value + ': '}">Тип email</td><td th:text="${entry.key}">email</td></tr>
+</table>
+
+<b>Телефон: </b>
+<table th:each="entry : ${phoneAndPhoneType}">
+    <tr><td th:text="${entry.value + ': '}">Тип телефона</td><td th:text="${entry.key}">номер телефона</td></tr>
+</table>
+
+<b>Адрес: </b>
+<table th:each="entry : ${addressAndAddressType}">
+    <tr><td th:text="${entry.value + ': '}">Тип адреса</td><td th:text="${entry.key}">адрес</td></tr>
+</table>
+
+<p><b>Организация: </b> <a th:text="${organisation.name}">День рождения</a></p>
+
+<p><b>Должность: </b> <a th:text="${post.name}">День рождения</a></p>
+
+<p><b>Комментарий: </b> <a th:text="${persons.comment}">День рождения</a></p>
+
+<form action="/persons">
+    <button type="submit">Все контакты</button>
+</form>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 package com.example.phonebook.repositories;
 
-import com.example.phonebook.models.Adress.Address;
+import com.example.phonebook.models.Address.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

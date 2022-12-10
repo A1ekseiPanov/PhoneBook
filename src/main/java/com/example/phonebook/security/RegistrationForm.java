@@ -1,4 +1,4 @@
-package com.example.phonebook.models.security;
+package com.example.phonebook.security;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,18 +26,18 @@ public class RegistrationForm {
 
     @NotEmpty(message = "Поле имя не должно быть пустым")
     @Size(min = 2, message = "Имя должен содержать не меньше 2 символов")
-    @Pattern(regexp ="^([А-ЯA-Z][а-яa-z]+)",
-            message = "Имя должно начинается с заглавной буквы и не должно содержать сторонние символы")
+    @Pattern(regexp ="^([А-Я][а-я]+|[A-Z][a-z]+)",
+            message = "Имя должно начинается с заглавной буквы, далее строчные. Либо только английскими буквами, либо русскими")
     private String name;
 
 
     @NotEmpty(message = "Поле фамилия не должно быть пустым")
     @Size(min = 2, message = "Имя должен содержать не меньше 2 символов")
-    @Pattern(regexp ="^([А-ЯA-Z][а-яa-z]+)",
-            message = "Фамилия должна начинается с заглавной буквы и не должна содержать сторонние символы")
+    @Pattern(regexp ="^([А-Я][а-я]+|[A-Z][a-z]+)",
+            message = "Фамилия должна начинается с заглавной буквы, далее строчные. Либо только английскими буквами, либо русскими")
     private String surname;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Поле день рождение не должно быть пустым")//дд/мм/гггг
     private Date dateOfBirthday;
 

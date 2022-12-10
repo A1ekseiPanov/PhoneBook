@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+</head>
+<body>
+<h2 >Список контактов:</h2>
+
+<div th:each="person : ${persons}">
+
+<!--    <a th:href="@{/presons/{id}(id=${person.getId()})}" th:text="${person.getName + ' ' + peron.getSurname}"> Person</a>-->
+<!--    <a th:text="${person.name  + ' ' + peron.surname}"> Person</a>-->
+    <a th:href="@{/persons/{id}(id=${person.getId()})}" th:text="${person.name}"> Person</a>
+</div></br>
+
+
+
+</body>
+</html>

@@ -1,13 +1,13 @@
 package com.example.phonebook.models.Person;
 
-import com.example.phonebook.models.Adress.Address;
+import com.example.phonebook.models.Address.Address;
 import com.example.phonebook.models.BaseEntity;
 import com.example.phonebook.models.Email1.Email;
 import com.example.phonebook.models.Organisation.Organisation;
 import com.example.phonebook.models.Phone.Phone;
 import com.example.phonebook.models.Post.Post;
-import com.example.phonebook.models.security.User;
-import lombok.Data;
+import com.example.phonebook.security.User;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -15,7 +15,9 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "person")
 public class Person extends BaseEntity {
 
@@ -36,18 +38,19 @@ public class Person extends BaseEntity {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirthday;
 
+
     @OneToMany(mappedBy = "user")
     private List<Email> email;
 
     @OneToMany(mappedBy = "user")
     private List<Phone> phone;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" )
     private List<Address> address;
 
     @ManyToOne
     @JoinColumn(name = "organisation_id", referencedColumnName = "id")
-    private Organisation organisations;
+    private Organisation organisation;
 
     @ManyToOne
     @JoinColumn(name = "post_id", referencedColumnName = "id")

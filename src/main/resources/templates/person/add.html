@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+</head>
+<body>
+<h2 >Добавить контакт</h2>
+
+<div th:each="person : ${persons}">
+    <a th:href="@{/presons/{id}(id=${person.getId()})}" th:text="${person.getName + ' ' + peron.getSurname}"> Person</a>
+</div></br>
+
+<form th:method="POST" th:object="${person}" th:action="@{/templates/person}">
+    <label>Имя: </label>
+    <input type="text" th:field="*{first_name}" id="first_name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}">Name error</div>
+    </br>
+
+    <label>Фамилия: </label>
+    <input type="text" th:field="*{last_name}" id="last_name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}">Surname error</div>
+    <br>
+
+    <label>Отчество: </label>
+    <input type="text" th:field="*{phone}" id="phone"/>
+    <div style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</div>
+    </br>
+
+    <label>Фото: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+
+    <select th:object="${emailType}" th:field="*{id}" id="emailType">
+        <option th:each="type : ${emailType}" th:field="${type.getId()}" th:text="${type.getName()}"
+    </select>
+    <label>email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="email"/>
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+
+    <select th:object="${phoneType}" th:field="*{id}" id="phoneType">
+        <option th:each="type : ${phoneType}" th:field="${type.getId()}" th:text="${type.getName()}"
+    </select>
+    <label>номер телефона</label>
+    <input type="text" th:field="*{phone}" id="phone" placeholder="номер телефона"/>
+    <div style="color: red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</div>
+
+    <select th:object="${addressType}" th:field="*{id}" id="addressType">
+        <option th:each="type : ${addressType}" th:field="${type.getId()}" th:text="${type.getName()}"
+    </select>
+    <label>адрес</label>
+    <input type="text" th:field="*{address}" id="address" placeholder="адрес"/>
+    <div style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Phone error</div>
+
+    <label>Организация: </label>
+    <input type="text" th:field="*{organisation}" id="organisation"/>
+    <div style="color: red" th:if="${#fields.hasErrors('organisation')}" th:errors="*{organisation}">Organisation error</div>
+
+    <label>Должность: </label>
+    <input type="text" th:field="*{post}" id="post"/>
+    <div style="color: red" th:if="${#fields.hasErrors('post')}" th:errors="*{post}">Post error</div>
+
+
+    <label>Комментарий: </label>
+    <textarea th:field="*{comment}" id="comment">текст</textarea>
+</form>
+
+
+
+</body>
+</html>

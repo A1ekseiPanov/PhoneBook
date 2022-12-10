@@ -2,16 +2,17 @@ package com.example.phonebook.models.Email1;
 
 import com.example.phonebook.models.BaseEntity;
 import com.example.phonebook.models.Person.Person;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "email")
 public class Email extends BaseEntity  implements Serializable {
 
@@ -20,8 +21,9 @@ public class Email extends BaseEntity  implements Serializable {
     @Column(name = "email")
     private String name;
 
-    @OneToMany(mappedBy = "email")
-    private List<EmailType> emailType;
+    @ManyToOne()
+    @JoinColumn(name = "email_type_id", referencedColumnName = "id")
+    private EmailType emailType;
 
     @ManyToOne()
     @JoinColumn(name = "person_id", referencedColumnName = "id")

@@ -1,7 +1,7 @@
 package com.example.phonebook.config;
 
 
-import com.example.phonebook.models.security.User;
+import com.example.phonebook.security.User;
 import com.example.phonebook.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
@@ -27,11 +27,11 @@ public class SecurityConfig {
 
 
     @Bean
-    public UserDetailsService DetailsService(UserService userService) {
+    public UserDetailsService userDetailsService(UserService userService) {
             return username -> {
-            Optional<User> user = userService.getUserByUsername(username);
-            if (user.isPresent()) {
-                return user.get();
+            User user = userService.getUserByUsername(username);
+            if (!user.equals(null)) {
+                return user;
             }
             throw new UsernameNotFoundException("User ‘" + username + "’ not found");
         };
@@ -58,6 +58,8 @@ public class SecurityConfig {
                 .build();
 
     }
+
+
 
 
 
