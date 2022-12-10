@@ -23,8 +23,8 @@ public class Organisation extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "post_id"))
     private List<Post> posts;
 
-    @OneToMany(mappedBy = "organisations")
-    private List<Person> user;
+    @OneToMany(mappedBy = "organisation")
+    private List<Person> persons;
 
 
 }

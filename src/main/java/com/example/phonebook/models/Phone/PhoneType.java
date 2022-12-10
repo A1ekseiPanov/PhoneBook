@@ -1,20 +1,22 @@
 package com.example.phonebook.models.Phone;
 
 import com.example.phonebook.models.BaseEntity;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "phone_type")
 public class PhoneType extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
-
-    @ManyToOne
-    @JoinColumn(name = "phone_id", referencedColumnName = "id")
-    private Phone phoneNumber;
+    @OneToMany(mappedBy = "phoneType")
+    private List<Phone> phoneNumber;
 }

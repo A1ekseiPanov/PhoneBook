@@ -1,12 +1,16 @@
-package com.example.phonebook.models.Adress;
+package com.example.phonebook.models.Address;
 
 import com.example.phonebook.models.BaseEntity;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "address_type")
 public class AddressType extends BaseEntity {
 
@@ -14,8 +18,7 @@ public class AddressType extends BaseEntity {
     @Column (name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    @OneToMany(mappedBy = "addressType")
+    private List<Address> address;
 
 }

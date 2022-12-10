@@ -1,6 +1,6 @@
 package com.example.phonebook.controllers;
 
-import com.example.phonebook.models.security.RegistrationForm;
+import com.example.phonebook.security.RegistrationForm;
 import com.example.phonebook.services.UserService;
 import com.example.phonebook.util.UserRegValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class RegistrationController {
             return "register";
         }
         userService.save(form.toUser());
-        return "redirect:/auth/login";
+        return "redirect:auth/login";
     }
 
 

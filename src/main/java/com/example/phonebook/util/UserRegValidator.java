@@ -1,6 +1,6 @@
 package com.example.phonebook.util;
 
-import com.example.phonebook.models.security.User;
+import com.example.phonebook.security.User;
 import com.example.phonebook.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
